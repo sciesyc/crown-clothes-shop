@@ -3,6 +3,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
+import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 
 import './sign-up-form.styles.scss';
@@ -94,7 +95,9 @@ const SignUpForm = () => {
           onChange={handleChange}
           value={displayName}
         />
-        <button type="submit">Submit form</button>
+        <Button buttonType="inverted" type="submit">
+          Sign Up
+        </Button>
       </form>
     </div>
   );
