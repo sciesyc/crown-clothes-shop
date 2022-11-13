@@ -16,9 +16,8 @@ const defaultFormFieldsState = {
 };
 
 const SignUpForm = () => {
-  console.log('defaultFormFieldsState: ', { defaultFormFieldsState });
   const [formFields, setFormFields] = useState(defaultFormFieldsState);
-  console.log('formFields: ', formFields);
+
   const { displayName, email, password, confirmPassword } = formFields;
 
   const resetFormFields = () => {
@@ -39,7 +38,6 @@ const SignUpForm = () => {
         email,
         password
       );
-      console.log('user', user);
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
@@ -66,7 +64,7 @@ const SignUpForm = () => {
         <FormInput
           label={'Display Name'}
           type="text"
-          required
+          required={true}
           name="displayName"
           onChange={handleChange}
           value={displayName}
@@ -74,26 +72,26 @@ const SignUpForm = () => {
         <FormInput
           label={'Email'}
           type="email"
-          required
+          required={true}
           name="email"
           onChange={handleChange}
-          value={displayName}
+          value={email}
         />
         <FormInput
           label={'Password'}
           type="password"
-          required
+          required={true}
           name="password"
           onChange={handleChange}
-          value={displayName}
+          value={password}
         />
         <FormInput
           label={'Confirm Password'}
           type="password"
-          required
+          required={true}
           name="confirmPassword"
           onChange={handleChange}
-          value={displayName}
+          value={confirmPassword}
         />
         <Button buttonType="inverted" type="submit">
           Sign Up
