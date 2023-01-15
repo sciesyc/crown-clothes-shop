@@ -6,14 +6,12 @@ import { CartContext } from '../context/cart.context';
 import './product-card.styles.scss';
 
 const ProductComponent = ({ product, products }) => {
-  const { name, price, imageUrl, id } = product;
+  const { name, price, imageUrl } = product;
 
-  const { setCartProducts } = useContext(CartContext);
+  const { addProductToCart } = useContext(CartContext);
 
-  const handleProductButton = (event) => {
-    console.log('onCLick products: ', products);
-    const product = products.find((prod) => prod.id === id);
-    setCartProducts((prev) => [...prev, product]);
+  const handleProductButton = () => {
+    addProductToCart(product);
   };
 
   return (
