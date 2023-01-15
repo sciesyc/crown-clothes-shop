@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {
-  signInWithGooglePopup,
-  signInUserWithEmailAndPassword,
   auth,
+  signInUserWithEmailAndPassword,
+  signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils';
 
 import Button from '../button/button.component';
