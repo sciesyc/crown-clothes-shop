@@ -5,7 +5,8 @@ import { CartContext } from '../../context/cart.context';
 
 import './product-card.styles.scss';
 
-const ProductComponent = ({ product, products }) => {
+const ProductCard = ({ product }) => {
+  console.log('product', product);
   const { name, price, imageUrl } = product;
 
   const { addProductToCart } = useContext(CartContext);
@@ -28,4 +29,4 @@ const ProductComponent = ({ product, products }) => {
   );
 };
 
-export default ProductComponent;
+export default ProductCard;
