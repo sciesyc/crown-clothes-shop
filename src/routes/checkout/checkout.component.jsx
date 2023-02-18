@@ -2,7 +2,13 @@ import { useContext, useEffect } from 'react';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import { CartContext } from '../../context/cart.context';
 
-import './checkout.style.scss';
+import {
+  CheckoutContainer,
+  CheckoutHeader,
+  HeaderBlock,
+  Title,
+  Total,
+} from './checkout.style.jsx';
 
 const Checkout = () => {
   const {
@@ -17,24 +23,24 @@ const Checkout = () => {
   useEffect(() => setIsCartOpen(false), [setIsCartOpen]);
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-header">
-        <div className="header-block">
+    <CheckoutContainer>
+      <CheckoutHeader>
+        <HeaderBlock>
           <span>Product</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Description</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Quantity</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Price</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlock>
+        <HeaderBlock>
           <span>Remove</span>
-        </div>
-      </div>
+        </HeaderBlock>
+      </CheckoutHeader>
       {cartProducts?.length ? (
         cartProducts.map((cartItem) => (
           <CheckoutItem
@@ -50,8 +56,8 @@ const Checkout = () => {
       ) : (
         <span>your cart is empty</span>
       )}
-      <div className="total">TOTAL: ${cartTotal}</div>
-    </div>
+      <Total>TOTAL: ${cartTotal}</Total>
+    </CheckoutContainer>
   );
 };
 
