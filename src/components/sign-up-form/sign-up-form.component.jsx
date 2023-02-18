@@ -7,7 +7,7 @@ import {
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 
-import './sign-up-form.styles.scss';
+import { SignUpContainer } from './sign-up-form.styles.jsx';
 
 const defaultFormFieldsState = {
   displayName: '',
@@ -58,7 +58,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>Don't have an account?</h2>
       <span>Sign Up With your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -98,7 +98,7 @@ const SignUpForm = () => {
           Sign Up
         </Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
