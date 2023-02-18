@@ -18,7 +18,7 @@ const deleteCartItem = (cartItems, itemTodelete) => {
   const existingItem = cartItems.find((el) => el.id === itemTodelete.id);
 
   if (itemTodelete.quantity === 1) {
-    cartItems.filter((cartItem) => cartItem.id !== itemTodelete.id);
+    return cartItems.filter((cartItem) => cartItem.id !== itemTodelete.id);
   }
 
   if (existingItem.quantity > 1) {

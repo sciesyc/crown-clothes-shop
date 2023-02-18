@@ -35,17 +35,21 @@ const Checkout = () => {
           <span>Remove</span>
         </div>
       </div>
-      {cartProducts.map((cartItem) => (
-        <CheckoutItem
-          key={cartItem.id}
-          checkoutItem={cartItem}
-          handleFunctions={{
-            addProductToCart,
-            deleteProductFromCart,
-            clearProductFromCart,
-          }}
-        />
-      ))}
+      {cartProducts?.length ? (
+        cartProducts.map((cartItem) => (
+          <CheckoutItem
+            key={cartItem.id}
+            checkoutItem={cartItem}
+            handleFunctions={{
+              addProductToCart,
+              deleteProductFromCart,
+              clearProductFromCart,
+            }}
+          />
+        ))
+      ) : (
+        <span>your cart is empty</span>
+      )}
       <div className="total">TOTAL: ${cartTotal}</div>
     </div>
   );
