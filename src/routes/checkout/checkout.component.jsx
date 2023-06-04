@@ -6,13 +6,12 @@ import {
   CheckoutContainer,
   CheckoutHeader,
   HeaderBlock,
-  Title,
   Total,
 } from './checkout.style.jsx';
 
 const Checkout = () => {
   const {
-    cartProducts,
+    cartItems,
     addProductToCart,
     deleteProductFromCart,
     clearProductFromCart,
@@ -41,8 +40,8 @@ const Checkout = () => {
           <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>
-      {cartProducts?.length ? (
-        cartProducts.map((cartItem) => (
+      {cartItems?.length ? (
+        cartItems.map((cartItem) => (
           <CheckoutItem
             key={cartItem.id}
             checkoutItem={cartItem}

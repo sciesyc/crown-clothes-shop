@@ -13,14 +13,14 @@ import {
 } from './cart-dropdown.styles.jsx';
 
 const CartDropdown = () => {
-  const { cartProducts } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
     <CartDropdownContainer>
       <CartItems>
-        {cartProducts.length ? (
-          cartProducts.map((item) => <CartItem key={item.id} cartItem={item} />)
+        {cartItems.length ? (
+          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         ) : (
           <EmptyMessage>your cart is empty</EmptyMessage>
         )}
