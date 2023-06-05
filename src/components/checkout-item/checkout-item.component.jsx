@@ -25,12 +25,12 @@ const CheckoutItem = ({ checkoutItem, handleFunctions }) => {
       </ImageItemContainer>
       <BaseSpan> {name} </BaseSpan>
       <Quantity>
-        <Arrow onClick={() => removeItemHandler()}>&#10094;</Arrow>
+        <Arrow onClick={removeItemHandler}>&#10094;</Arrow>
         <Value>{quantity}</Value>
-        <Arrow onClick={() => addItemHandler()}>&#10095;</Arrow>
+        <Arrow onClick={addItemHandler}>&#10095;</Arrow>
       </Quantity>
       <BaseSpan> {price}</BaseSpan>
-      <RemoveButton onClick={() => clearItemHandler()}>&#10005;</RemoveButton>
+      <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>
   );
 };

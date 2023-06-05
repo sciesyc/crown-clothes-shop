@@ -19,7 +19,7 @@ const Checkout = () => {
     setIsCartOpen,
   } = useContext(CartContext);
 
-  useEffect(() => setIsCartOpen(false), [setIsCartOpen]);
+  useEffect(() => setIsCartOpen(false), []);
 
   return (
     <CheckoutContainer>
