@@ -1,7 +1,10 @@
-import { useContext, useEffect } from 'react';
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import { CartContext } from '../../context/cart.context';
+import { useSelector } from 'react-redux';
 
+import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../store/cart/cart.selector';
 import {
   CheckoutContainer,
   CheckoutHeader,
@@ -10,16 +13,8 @@ import {
 } from './checkout.style.jsx';
 
 const Checkout = () => {
-  const {
-    cartItems,
-    addProductToCart,
-    deleteProductFromCart,
-    clearProductFromCart,
-    cartTotal,
-    setIsCartOpen,
-  } = useContext(CartContext);
-
-  useEffect(() => setIsCartOpen(false), []);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
@@ -42,15 +37,7 @@ const Checkout = () => {
       </CheckoutHeader>
       {cartItems?.length ? (
         cartItems.map((cartItem) => (
-          <CheckoutItem
-            key={cartItem.id}
-            checkoutItem={cartItem}
-            handleFunctions={{
-              addProductToCart,
-              deleteProductFromCart,
-              clearProductFromCart,
-            }}
-          />
+          <CheckoutItem key={cartItem.id} checkoutItem={cartItem} />
         ))
       ) : (
         <span>your cart is empty</span>
