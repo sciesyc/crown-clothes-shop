@@ -24,7 +24,7 @@ const Category = () => {
       <CategoryContainer>
         {products &&
           products.map((product) => (
-            <ProductCard key={products} product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
       </CategoryContainer>
     </>
