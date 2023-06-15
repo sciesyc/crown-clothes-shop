@@ -1,6 +1,5 @@
 import { CATEGORIES_ACTION_TYPES } from './category.types';
 
-import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
 import { createAction } from '../../utils/reducer.utils';
 
 export const setCategories = (categoriesArray) =>
