@@ -80,7 +80,9 @@ export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation
 ) => {
+  console.log('createUserDocumentFromAuth start');
   if (!userAuth) return;
+  console.log('createUserDocumentFromAuth userAuth', userAuth);
 
   const userDocRef = doc(db, 'users', userAuth.uid);
 
@@ -123,7 +125,6 @@ export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
 
 export const getCurrentUser = () => {
-  console.log('!!!');
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
       auth,
