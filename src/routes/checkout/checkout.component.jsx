@@ -1,26 +1,22 @@
-import { useContext, useEffect } from 'react';
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import { CartContext } from '../../context/cart.context';
+import { useSelector } from 'react-redux';
 
+import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import PaymentForm from '../../components/payment-form/payment-form.component';
+
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../store/cart/cart.selector';
 import {
   CheckoutContainer,
   CheckoutHeader,
   HeaderBlock,
-  Title,
   Total,
 } from './checkout.style.jsx';
 
 const Checkout = () => {
-  const {
-    cartProducts,
-    addProductToCart,
-    deleteProductFromCart,
-    clearProductFromCart,
-    cartTotal,
-    setIsCartOpen,
-  } = useContext(CartContext);
-
-  useEffect(() => setIsCartOpen(false), [setIsCartOpen]);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
@@ -41,22 +37,15 @@ const Checkout = () => {
           <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>
-      {cartProducts?.length ? (
-        cartProducts.map((cartItem) => (
-          <CheckoutItem
-            key={cartItem.id}
-            checkoutItem={cartItem}
-            handleFunctions={{
-              addProductToCart,
-              deleteProductFromCart,
-              clearProductFromCart,
-            }}
-          />
+      {cartItems?.length ? (
+        cartItems.map((cartItem) => (
+          <CheckoutItem key={cartItem.id} checkoutItem={cartItem} />
         ))
       ) : (
         <span>your cart is empty</span>
       )}
       <Total>TOTAL: ${cartTotal}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };
