@@ -1,11 +1,11 @@
 import { CATEGORIES_ACTION_TYPES, Category } from './category.types';
 
 import {
-  createAction,
   Action,
-  withMatcher,
   ActionWithPayload,
-} from '../../utils/reducer.utils';
+  createAction,
+  withMatcher,
+} from '../../utils/reducer/reducer.utils';
 
 export type FetchCategoriesStart =
   Action<CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START>;
