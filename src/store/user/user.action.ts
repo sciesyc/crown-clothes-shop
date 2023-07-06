@@ -1,4 +1,7 @@
-import { UserData } from '../../utils/firebase/firebase.utils';
+import {
+  AdditionalInformation,
+  UserData,
+} from '../../utils/firebase/firebase.utils';
 
 import {
   Action,
@@ -6,6 +9,7 @@ import {
   createAction,
   withMatcher,
 } from '../../utils/reducer/reducer.utils';
+
 import { USER_ACTION_TYPES } from './user.types';
 
 export type CheckUserSession = Action<USER_ACTION_TYPES.CHECK_USER_SESSION>;
@@ -103,7 +107,7 @@ export type SignUpSuccess = ActionWithPayload<
 >;
 
 export const signUpSuccess = withMatcher(
-  (user: UserData, additionalDetails = {}): SignUpSuccess =>
+  (user: UserData, additionalDetails: AdditionalInformation): SignUpSuccess =>
     createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, { user, additionalDetails })
 );
 
