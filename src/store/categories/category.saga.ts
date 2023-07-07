@@ -12,9 +12,9 @@ import {
 export function* fetchCategoriesAsync() {
   try {
     const categoriesArray = yield* call(getCategoriesAndDocuments);
-    yield put(fetchCategoriesSuccess(categoriesArray));
+    yield* put(fetchCategoriesSuccess(categoriesArray));
   } catch (error) {
-    yield put(fetchCategoriesFailed(error as Error));
+    yield* put(fetchCategoriesFailed(error as Error));
   }
 }
 
