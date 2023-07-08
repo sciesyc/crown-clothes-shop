@@ -7,11 +7,7 @@ import {
   selectIsCartOpen,
 } from '../../store/cart/cart.selector';
 
-import {
-  CartIconContainer,
-  ItemCount,
-  ShoppingIcon,
-} from './cart-icon.styles.jsx';
+import { CartIconContainer, ItemCount, ShoppingIcon } from './cart-icon.styles';
 
 const CartIcon = () => {
   const cartCount = useSelector(selectCartCount);
