@@ -43,7 +43,7 @@ const SignInForm = () => {
         case AuthErrorCodes.INVALID_PASSWORD:
           alert('incorrect password for email');
           break;
-        case AuthErrorCodes.USER_MISMATCH:
+        case AuthErrorCodes.USER_DELETED:
           alert('incorrect password for email');
           break;
         default:
