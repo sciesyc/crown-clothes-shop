@@ -10,7 +10,7 @@ import {
   emailSignInStart,
   googleSignInStart,
 } from '../../store/user/user.action';
-import { ButtonsContainer, SignInContainer } from './sign-in-form.styles.jsx';
+import { ButtonsContainer, SignInContainer } from './sign-in-form.styles';
 
 const defaultFormFieldsState = {
   email: '',
