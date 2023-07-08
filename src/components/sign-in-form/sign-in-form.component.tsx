@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
 
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
@@ -28,7 +28,7 @@ const SignInForm = () => {
     setFormFields({ ...defaultFormFieldsState });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
@@ -36,20 +36,11 @@ const SignInForm = () => {
 
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
-        case 'auth/wrong-password':
-          alert('incorrect password for email');
-          break;
-        case 'auth/user-not-found':
-          alert('incorrect password for email');
-          break;
-        default:
-          console.log('ERROR :', error.message);
-      }
+      console.log('user sign in failed', error);
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
     } = event;
