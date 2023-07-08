@@ -1,6 +1,8 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
+
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
 
@@ -37,6 +39,16 @@ const SignInForm = () => {
       resetFormFields();
     } catch (error) {
       console.log('user sign in failed', error);
+      switch ((error as AuthError).code) {
+        case AuthErrorCodes.INVALID_PASSWORD:
+          alert('incorrect password for email');
+          break;
+        case AuthErrorCodes.USER_MISMATCH:
+          alert('incorrect password for email');
+          break;
+        default:
+          console.log('ERROR :', (error as Error).message);
+      }
     }
   };
 
