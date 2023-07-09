@@ -13,7 +13,6 @@ import {
   PaymentButton,
 } from './payment-form.styles';
 import { StripeCardElement } from '@stripe/stripe-js';
-import { isValidDateValue } from '@testing-library/user-event/dist/utils';
 
 const ifValidCardElement = (
   card: StripeCardElement | null
