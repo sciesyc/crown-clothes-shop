@@ -26,6 +26,8 @@ export const BaseButton = styled.button`
   }
 `;
 
+BaseButton.displayName = 'BaseButton';
+
 export const GoogleSignInButton = styled(BaseButton)`
   background-color: #4285f4;
   color: white;
@@ -35,6 +37,8 @@ export const GoogleSignInButton = styled(BaseButton)`
     border: none;
   }
 `;
+
+GoogleSignInButton.displayName = 'GoogleSignInButton';
 
 export const InvertedButton = styled(BaseButton)`
   background-color: white;
@@ -47,6 +51,8 @@ export const InvertedButton = styled(BaseButton)`
     border: none;
   }
 `;
+
+InvertedButton.displayName = 'InvertedButton';
 
 export const LoadingSpinner = styled.div`
   display: inline-block;
