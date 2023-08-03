@@ -4,13 +4,15 @@ import { createStore } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import { rootReducer } from '../../store/root-reducer';
 
-export function renderWithProviders(
+export default function renderWithProviders(
   ui,
   {
     initialState = {},
     // Automatically create a store instance if no store was passed in
     store = createStore(rootReducer, initialState),
     ...renderOptions
+  } = {
+    initialState: {},
   }
 ) {
   function Wrapper({ children }) {
