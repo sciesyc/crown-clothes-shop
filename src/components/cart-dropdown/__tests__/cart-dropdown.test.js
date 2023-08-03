@@ -24,7 +24,13 @@ describe('cart dropdown tests', () => {
 
   it('cart dropdown rendered with items', () => {
     const initialCartItems = [
-      { id: 1, name: 'Item A', imageUrl: 'test', price: 20, quantity: 2 },
+      {
+        id: 1,
+        name: 'Item A',
+        imageUrl: 'test',
+        price: 20,
+        quantity: 2,
+      },
       { id: 2, name: 'Item B', imageUrl: 'test', price: 40, quantity: 4 },
     ];
 
@@ -37,8 +43,8 @@ describe('cart dropdown tests', () => {
     });
 
     expect(screen.queryByText('your cart is empty')).toBeNull();
-    expect(screen.getByText('Item A')).toBeInTheDocument();
-    expect(screen.getByText('Item B')).toBeInTheDocument();
+    expect(screen.getByAltText('Item A')).toBeInTheDocument();
+    expect(screen.getByAltText('Item B')).toBeInTheDocument();
   });
 
   it('cart button redirect to check out page', () => {
