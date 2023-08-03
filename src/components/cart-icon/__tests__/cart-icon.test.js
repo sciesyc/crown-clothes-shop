@@ -4,8 +4,6 @@ import CartIcon from '../cart-icon.component';
 
 import renderWithProviders from '../../../utils/testing/render-with-provider.utils';
 
-const mockClick = jest.fn();
-
 describe('CartIcon component test', () => {
   it('rendering CartItem component with one item and the quantity of 2', () => {
     const initialCartItems = [
