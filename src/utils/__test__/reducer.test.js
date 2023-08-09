@@ -1,6 +1,6 @@
 import { createAction } from '../reducer/reducer.utils';
 
-const mockedCreateAction = describe('Reducer utils testing', () => {
+describe('Reducer utils testing', () => {
   const testType = 'testType';
 
   it('createAction type testing', () => {
