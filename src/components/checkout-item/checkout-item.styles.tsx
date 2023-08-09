@@ -33,6 +33,8 @@ export const Arrow = styled.div`
 `;
 
 export const Value = styled.span`
+  width: 20px;
+  text-align: center;
   margin: 0 10px;
 `;
 
