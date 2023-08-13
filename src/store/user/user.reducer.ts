@@ -38,5 +38,6 @@ export const userReducer = (state = INITIAL_STATE, action: AnyAction) => {
   ) {
     return { ...state, error: action.payload, isLoading: false };
   }
+
   return state;
 };
